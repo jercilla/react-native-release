@@ -92,3 +92,32 @@ def enableProguardInReleaseBuilds = true
 >By default, INTERNET permission is added to your Android app as pretty much all apps use it. 
 >SYSTEM_ALERT_WINDOW permission is added to your Android APK in debug mode but it will be removed in production.
 
+#Release github actions
+
+https://www.obytes.com/blog/react-native-ci-cd-github-action
+
+
+Better npm publish
+```
+npm i np
+npm i react-native-version
+```
+
+package.json
+```
+    scripts {
+        ...
+        "np": "np --no-publish",
+        "postversion": "react-native-version"
+    }
+
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jercilla/react-native-release.git"
+     }
+
+```
+
+>We added react-native-version command as a postversion script because np can't >update ios and android versions. react-native-version will help sync package.json >version with android and ios as well as increment the build number automatically. 
+
+
