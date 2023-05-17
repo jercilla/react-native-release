@@ -96,7 +96,25 @@ def enableProguardInReleaseBuilds = true
 
 https://www.obytes.com/blog/react-native-ci-cd-github-action
 
+## Bundle and sign
 
+```
+.github/workflows/android_build.yml
+```
+
+GH secrets (Github project home page > Project Setting > Secrets > Actions > new repository secret)
+
+- ANDROID_SIGNING_KEY: The base64 encoded signing key used to sign your app
+```
+openssl base64 < android/app/upload-to-play-store.keystore  | tr -d '\n' | tee android/app/upload-to-play-store.keystore.base64.txt
+```
+
+- ANDROID_ALIAS: google-play-store-key
+- ANDROID_KEY_STORE_PASSWORD: 4ndr01d
+- ANDROID_KEY_PASSWORD: 4ndr01d
+
+
+## Release versions to github
 Better npm publish
 ```
 npm i np
@@ -119,5 +137,9 @@ package.json
 ```
 
 >We added react-native-version command as a postversion script because np can't >update ios and android versions. react-native-version will help sync package.json >version with android and ios as well as increment the build number automatically. 
+
+```
+npm run np
+```
 
 
