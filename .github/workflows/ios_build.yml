@@ -65,7 +65,7 @@ jobs:
           workspace-path: AwesomeProject.xcworkspace
           scheme: AwesomeProject
 
-      - name: 'Upload app to TestFlight'
+      - name: 'Upload to TestFlight'
         uses: apple-actions/upload-testflight-build@v1
         with:
           app-path: 'output.ipa'
