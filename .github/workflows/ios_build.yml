@@ -1,4 +1,4 @@
-name: IOS Production Build
+name: IOS Build
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   ios-build:
-    name: IOS Production Build
+    name: IOS Build
     runs-on: macOS-11
     defaults:
       run:
@@ -51,7 +51,7 @@ jobs:
             ${{ runner.os }}-pods-
 
       - name: Install Pods
-        run: cd ios && pod install --repo-update && cd ..
+        run: pod install --repo-update && cd ..
 
       - name: Build IOS App
         uses: yukiarrr/ios-build-action@v1.4.0
