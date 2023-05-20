@@ -62,13 +62,13 @@ jobs:
           code-signing-identity: 'iPhone Distribution'
           team-id: ${{ secrets.IOS_TEAM_ID }}
           certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
-          workspace-path: AwesomeProject.xcworkspace
+          workspace-path: ios/AwesomeProject.xcworkspace
           scheme: AwesomeProject
 
-      - name: 'Upload to TestFlight'
-        uses: apple-actions/upload-testflight-build@v1
-        with:
-          app-path: 'output.ipa'
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+      # - name: 'Upload to TestFlight'
+      #   uses: apple-actions/upload-testflight-build@v1
+      #   with:
+      #     app-path: 'output.ipa'
+      #     issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+      #     api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+      #     api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
